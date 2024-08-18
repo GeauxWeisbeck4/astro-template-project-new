@@ -1,4 +1,6 @@
 ---
+import { AppConfig } from '../utils/AppConfig.ts';
+
 
 ---
 
@@ -8,7 +10,26 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Geaux Template</title>
+		<meta name="description" content="An Astro template" />
+		<meta name="author" content="Andrew Weisbeck" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+    	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+
+		<script>
+			if (
+				localStorage.getItem('dark-mode') === 'true' ||
+				(!('dark-mode' in localStorage) &&
+						window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				localStorage.setItem('dark-mode', 'true');
+				document.querySelector('html')?.classList.add('dark');
+			} else {
+				localStorage.setItem('dark-mode', 'false');
+				document.querySelector('html')?.classList.remove('dark');
+			}
+		</script>
 	</head>
 	<body>
 		<slot />
